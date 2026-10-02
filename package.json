@@ -7,7 +7,8 @@
     "dev": "vite dev --host 0.0.0.0 --port 62016",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port 62016",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "esbuild tests/ledger.test.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/ledger.test.mjs --log-level=error && node --test node_modules/.cache/ledger.test.mjs"
   },
   "dependencies": {
     "@inlang/paraglide-js": "^2.25.4",
@@ -21,6 +22,8 @@
     "@sveltejs/kit": "^2.70.3",
     "@sveltejs/vite-plugin-svelte": "^6.2.4",
     "@tailwindcss/vite": "^4.1.14",
+    "@types/node": "^20.19.43",
+    "esbuild": "^0.28.2",
     "svelte": "^5.57.1",
     "svelte-check": "^4.3.2",
     "tailwindcss": "^4.1.14",
